@@ -1,0 +1,18 @@
+language: node_js
+
+branches:
+  only:
+    - master
+
+node_js:
+  - "4.3"
+  - "6.10"
+  - "7.10"
+  - "8.0"
+  - stable
+
+notifications:
+  email:
+    - vesa.poikajarvi@iki.fi
+
+sudo: false
