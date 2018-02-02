@@ -59,7 +59,7 @@ function initWebServer() {
 	  cert: fs.readFileSync('./certs/server.crt')
 	};
 	
-	// var httpsServer = https.createServer(options, app);
+	 var httpsServer = https.createServer(options, app);
 	// Create an HTTPS service identical to the HTTP service.
 	
 
@@ -75,15 +75,15 @@ function initWebServer() {
 	//app.use(morgan('dev'));
 	app.use('/api/', routes);
 	
-	// httpsServer.listen(3007, function() {
-        // console.log('Webserver listening on localhost:3007');  
-	// });
+	 httpsServer.listen(3003, function() {
+         console.log('Webserver listening on localhost:3003');  
+	 });
 	// https.createServer(options, app).listen(3007, function(){
 		// console.log('webserver listening on localhost:3007');  
 	// });
-	httpServer.listen(3003, function() {
-        console.log('Webserver listening on localhost:3003');  
-    });    
+	//httpServer.listen(3003, function() {
+    //    console.log('Webserver listening on localhost:3003');  
+    //});    
 }
 
 

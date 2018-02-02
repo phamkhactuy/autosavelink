@@ -323,10 +323,20 @@ class DBHelper {
             });
         });
     }
-    //TuyPK: insert linkauto
+    //TuyPK: insert autosavelink
+    insertlinkfavorite(link, callback) {
+        this.Mongodb.onConnect((db) => {
+            var role = db.collection('savelinkfavorite');
+            var a=role.insertOne({ url: String(link.url), description:  String(link.description), title: String(link.title), keywords: String(link.keywords)}).then(function(doc){
+                callback(doc);
+            });
+            db.close();
+        });
+    }
+	//TuyPK: insert autosavelink
     insertLinkauto(link, callback) {
         this.Mongodb.onConnect((db) => {
-            var role = db.collection('linkauto');
+            var role = db.collection('autosavelink1');
             var a=role.insertOne({ url: String(link.url), description:  String(link.description), title: String(link.title), keywords: String(link.keywords)}).then(function(doc){
                 callback(doc);
             });

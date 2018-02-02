@@ -6,7 +6,7 @@ var vardiscription=getDiscripton();
 var varurl=document.URL;
 var vartitle=document.title;
 var varkeywords=getKeywords();
-fetch("http://localhost:3003/api/auth/addlinkauto", {
+fetch("https://localhost:3003/api/auth/addlinkauto", {
   method: "post",
   headers: {
     'Accept': 'application/json',
@@ -162,6 +162,27 @@ function saveBackgroundColor(url, color) {
 // chrome.storage.local allows the extension data to be synced across multiple
 // user devices.
 document.addEventListener('DOMContentLoaded', () => {
+	/*fetch("https://localhost:3003/api/auth/addlinkfavorite", {
+	  method: "post",
+	  headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json'
+	  },
+
+	  //make sure to serialize your JSON body
+	  body: JSON.stringify({
+		role:{
+		url: varurl,
+		title: vartitle,
+		description: vardiscription,
+		keywords: varkeywords
+		  }
+	  })
+	})
+	.then( (response) => { 
+	   //do something awesome that makes the world a better place
+	});*/
+	/*
   getCurrentTabUrl((url) => {
     var dropdown = document.getElementById('dropdown');
 
@@ -180,5 +201,5 @@ console.log('Tuy dep trai');
       changeBackgroundColor(dropdown.value);
       saveBackgroundColor(url, dropdown.value);
     });
-  });
+  });*/
 });
