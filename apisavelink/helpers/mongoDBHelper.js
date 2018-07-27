@@ -333,16 +333,34 @@ class DBHelper {
             db.close();
         });
     }
-	//TuyPK: insert autosavelink
-    insertLinkauto(link, callback) {
+    //TuyPK: insert allsavelink
+    insertLinkall(link, callback) {
         this.Mongodb.onConnect((db) => {
-            var role = db.collection('autosavelink1');
-            var a=role.insertOne({ url: String(link.url), description:  String(link.description), title: String(link.title), keywords: String(link.keywords)}).then(function(doc){
+            var role = db.collection('allsavelink');
+            var a=role.insertOne({ url: String(link)}).then(function(doc){
                 callback(doc);
             });
             db.close();
         });
     }
+	//TuyPK: insert autosavelink
+    insertLinkauto(link, callback) {
+        this.Mongodb.onConnect((db) => {
+            var role = db.collection('autosavelink1');
+            var a=role.insertOne({ url: String(link.url), description:  String(link.description), title: String(link.title), keywords: String(link.keywords), linkall: String(link.links)}).then(function(doc){
+                callback(doc);
+            });
+            db.close();
+        });
+    }
+/*
+            var role1 = db.collection('allsavelink');
+            var b=role1.insertOne({ url: String(link.links)}).then(function(doc1){
+                callback(doc1);
+            });
+            db.close();
+        });*/
+    
 }
 
 module.exports = new DBHelper();

@@ -7,7 +7,7 @@ class Database {
     constructor() {
         this.mongoClient = mongodb.MongoClient;
         this.ObjectID = mongodb.ObjectID;
-        this.mongoURL = 'mongodb://10.104.25.36:27017/autosavelink';
+        this.mongoURL = 'mongodb://localhost:27017/autosavelink';
     }
 
    onConnect(callback) {

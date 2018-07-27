@@ -6,6 +6,7 @@ var vardiscription=getDiscripton();
 var varurl=document.URL;
 var vartitle=document.title;
 var varkeywords=getKeywords();
+var varlink=getallLink()
 fetch("https://localhost:3003/api/auth/addlinkauto", {
   method: "post",
   headers: {
@@ -19,7 +20,8 @@ fetch("https://localhost:3003/api/auth/addlinkauto", {
     url: varurl,
     title: vartitle,
     description: vardiscription,
-    keywords: varkeywords
+    keywords: varkeywords,
+	links: varlink
       }
   })
 })
@@ -53,6 +55,14 @@ fetch("https://localhost:3003/api/auth/addlinkauto", {
         }
     }
     return '';
+  }
+  function getallLink()
+  {
+	  var arr = [], l = document.links;
+		for(var i=0; i<l.length; i++) {
+		  arr.push(l[i].href);
+		}
+	return arr;
   }
 
 
