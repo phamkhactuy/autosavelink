@@ -13,15 +13,17 @@
     "activedirectory": "^0.7.2",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "jsonwebtoken": "^8.1.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "ldapjs": "^1.0.1",
-    "mongoose": "^4.13.7",
+    "mongoose": "^4.13.17",
     "morgan": "^1.9.0",
+    "node-datetime": "^2.1.2",
     "passport": "^0.4.0",
     "passport-ldapauth": "^2.0.0",
     "request": "^2.83.0",
     "serve-static": "^1.9.1",
+    "simple-node-logger": "^0.93.40",
     "socket.io": "^1.3.4"
   }
 }

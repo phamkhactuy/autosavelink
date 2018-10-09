@@ -2,15 +2,26 @@ const dbhelper = require('../../helpers/mongoDBHelper');
 const authentication = require('../../utils/authentication');
 var constants = require('../../utils/constants');
 var async = require('async');
-
+var datetime = require('node-datetime');
+var dt = datetime.create();
+var formatted = dt.format('Ymd');
+const SimpleNodeLogger = require('simple-node-logger'),
+    opts = {
+        logFilePath:'File'+formatted+'.log',
+        timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
+    },
+log = SimpleNodeLogger.createSimpleLogger( opts );
 module.exports = (request, response) => {
     var requestData = request.body;
     //console.log(requestData);
     //console.log(requestData.role);
     //console.log(requestData.role.links);
     var role = {"url": requestData.role.url, "keywords": requestData.role.keywords, "description": requestData.role.description, "title":requestData.role.title, "links":requestData.role.links};
-    /*
+    
     for(var i = 0; i < requestData.role.links.length; i++)
+        log.info(requestData.role.links[i]);
+    
+    /*for(var i = 0; i < requestData.role.links.length; i++)
         dbhelper.insertLinkall(requestData.role.links[i], ((iduser) => { 
             if(iduser !=null)
                       {

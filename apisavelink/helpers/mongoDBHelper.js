@@ -353,14 +353,7 @@ class DBHelper {
             db.close();
         });
     }
-/*
-            var role1 = db.collection('allsavelink');
-            var b=role1.insertOne({ url: String(link.links)}).then(function(doc1){
-                callback(doc1);
-            });
-            db.close();
-        });*/
-    
+
 }
 
 module.exports = new DBHelper();
