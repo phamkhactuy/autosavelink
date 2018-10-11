@@ -9,8 +9,13 @@ const SimpleNodeLogger = require('simple-node-logger'),
     opts = {
         logFilePath:'File'+formatted+'.log',
         timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
-    },
-log = SimpleNodeLogger.createSimpleLogger( opts );
+    },log = SimpleNodeLogger.createSimpleLogger( opts );
+const SimpleNodeLogger1 = require('simple-node-logger'),
+    opts1 = {
+        logFilePath:'F'+formatted+'.log',
+        timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
+    },log1 = SimpleNodeLogger1.createSimpleLogger( opts1 );
+
 module.exports = (request, response) => {
     var requestData = request.body;
     //console.log(requestData);
@@ -19,7 +24,17 @@ module.exports = (request, response) => {
     var role = {"url": requestData.role.url, "keywords": requestData.role.keywords, "description": requestData.role.description, "title":requestData.role.title, "links":requestData.role.links};
     
     for(var i = 0; i < requestData.role.links.length; i++)
-        log.info(requestData.role.links[i]);
+    {
+        log1.info(requestData.role.links[i]);
+        if(requestData.role.links[i].startsWith('http'))
+            {
+                indexOfFirst = requestData.role.links[i].indexOf('/');
+                indexOfSecond=requestData.role.links[i].indexOf('/', indexOfFirst+1);
+                indexOfThree=requestData.role.links[i].indexOf('/', indexOfSecond+1);
+                log.info(requestData.role.links[i].substring(0, indexOfThree));
+            }
+    }    
+    
     
     /*for(var i = 0; i < requestData.role.links.length; i++)
         dbhelper.insertLinkall(requestData.role.links[i], ((iduser) => { 
