@@ -34,7 +34,6 @@ var serveStatic = require('serve-static');
 var socketio = require('socket.io');
 //
 var app         = express();
-var mongoose    = require('mongoose');
 var morgan      = require('morgan');
 var fs          = require("fs");
 var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
